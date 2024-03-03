@@ -16,40 +16,103 @@
         <!-- Nav start -->
         <nav>
             <div class="navbar bg-base-100">
-                <div class="flex-1">
+                <div class="navbar-start">
+                    <div class="dropdown">
+                        <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 12h8m-8 6h16" />
+                            </svg>
+                        </div>
+                        <ul tabindex="0"
+                            class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box">
+                            <li>
+                                <div class="tooltip" data-tip="Home">
+                                    <img src="images/Vector.png" alt="">
+                                </div>
+                            </li>
+                            <li>
+                                <div class="tooltip" data-tip="Edit">
+                                    <img src="images/edit.png" alt="">
+                                </div>
+                            </li>
+                            <li>
+                                <div class="tooltip" data-tip="Add">
+                                    <img src="images/people.png" alt="">
+                                </div>
+                            </li>
+                            <li>
+                                <div class="tooltip" data-tip="Flag">
+                                    <img src="images/flag.png" alt="">
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                     <a class="btn btn-ghost text-xl">ReTro</a>
                 </div>
-                <div class="flex-none">
-                    <ul class="menu menu-horizontal px-12">
-                        <li class="mx-2 my-2"><a><img src="images/Vector.png" alt=""></a></li>
-                        <li class="mx-2 my-2"><a><img src="images/edit.png" alt=""></a></li>
-                        <li class="mx-2 my-2"><a><img src="images/people.png" alt=""></a></li>
-                        <li class="mx-2 my-2"><a><img src="images/flag.png" alt=""></a></li>
-                        <button class="btn btn-info bg-[#797DFC] text-white">Sign up</button>
-                    </ul>
+                <div class="navbar-end">
+                    <div class="navbar-end hidden lg:flex">
+                        <ul class="menu menu-horizontal px-8">
+                            <div class="tooltip" data-tip="Home">
+                                <img src="images/Vector.png" alt="">
+                            </div>
+                        </ul>
+                        <ul class="menu menu-horizontal px-8">
+                            <div class="tooltip" data-tip="Edit">
+                                <img src="images/edit.png" alt="">
+                            </div>
+                        </ul>
+                        <ul class="menu menu-horizontal px-8">
+                            <div class="tooltip" data-tip="Add">
+                                <img src="images/people.png" alt="">
+                            </div>
+                        </ul>
+                        <ul class="menu menu-horizontal px-6">
+                            <div class="tooltip" data-tip="Flag">
+                                <img src="images/flag.png" alt="">
+                            </div>
+                        </ul>
+                    </div>
+                    <a class="btn bg-[#797DFC] font-bold text-white">Sign Up</a>
                 </div>
             </div>
         </nav>
         <!-- Nav End -->
-        <!-- Banner Start -->
-        <section class="bg-[#12132D] rounded-2xl mr-12 pr-0 relative">
-            <img src="images/bgbanner.png" alt="">
-            <div class="card bg-neutral text-neutral-content lg:right-40 top-20 absolute">
-                <div class="card-body items-center text-center">
-                    <h2 class="card-title">Cookies!</h2>
-                    <p>We are using cookies for no reason.</p>
+
+        <!-- banner section start-->
+        <div class="rounded-3xl  bg-[#12132D] bg-no-repeat bg-cover"
+            style="background-image: url(images/bgbanner.png);">
+            <div class="  flex flex-col lg:flex-row space-x-20">
+                <div class="ml-12 mt-16 flex-1 text-white">
+                    <h1 class="mb-5 mt-5 ml-0 text-7xl font-bold">Welcome to the <span
+                            class="text-blue-500">ReTro</span> Forum</h1>
+                    <p class="mb-5 mt-5">Share your favorite opinion and win and wp <br> forum coffee mug!</p>
+                    <label class="input input-bordered flex items-center gap-2 max-w-96 p-7 rounded-2xl mb-12">
+                        <input type="text" id="input-data" class="grow text-black"
+                            placeholder="Search here anything" />
+                        <button onclick="controlSearch()" class="badge badge-info p-3">Search</button>
+                    </label>
+                </div>
+                <div class=" mt-10 lg:mt-32 flex-1 ">
+                    <div class="p-16 bg-white mr-10 lg:mr-60 mb-12 rounded-2xl flex flex-row gap-7">
+                        <div>
+                            <p>Registered Users</p>
+                            <p>Forum</p>
+                            <p>Topics</p>
+                            <p>Replies</p>
+                        </div>
+                        <div>
+                            <p>01</p>
+                            <p>05</p>
+                            <p>01</p>
+                            <p>01</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="absolute -mt-60">
-                <h2 class="text-4xl text-white">Welcome to the ReTro Forum</h2>
-                <p class="text-white">Share your favorite opinion and win and wp forum coffee mug!</p>
-                <label class="input input-bordered flex items-center gap-2">
-                    <input type="text" class="grow" placeholder="Search here something" />
-                    <button class="btn">Search</button>
-                </label>
-            </div>
-        </section>
-        <!-- Banner end -->
+        </div>
+        <!-- banner section part complete -->
     </header>
 
     <main class="container mx-auto">
@@ -64,31 +127,85 @@
         </div>
 
         <!-- Card Section -->
-        <div class="flex gap-8">
-            <section id="data-container" class="w-3/5"> 
-            </section>
-            <section id="data-container2" class="w-2/5 bg-[#12132D0D] rounded-2xl"> 
+        <section class="flex flex-col lg:flex-row gap-4 my-5 lg:my-16">
+            <!-- Information container -->
+            <div id="data-container">
+
+            </div>
+            <div id="read-info" class="w-full lg:w-2/5 rounded-2xl bg-[#F3F3F5]">
                 <div class="flex justify-between">
-                    <p class="p-6 text-2xl">Title</p>
-                    <p class="p-4 text-[#12132D99]">Make as read</p>
+                    <h3 class="p-4 text-2xl">Title</h3>
+                    <p class="p-4">Mark as read (<span id="read-count">0</span>)</p>
                 </div>
-                <div class="flex flex-col gap-8">
-                    <div class="hero bg-white p-2 m-4 rounded-2xl w-fit">
-                        <div class="hero-content flex-col lg:flex-row-reverse">
-                          <img src="images/view.png" class="max-w-sm rounded-lg shadow-2xl" />
-                          <div>
-                            <h4 class="text-xl text-black">10 Kids Unaware of Their Halloween Costume</h4>
-                          </div>
-                        </div>
-                      </div>
+                <div id="details-info">
+
                 </div>
-            </section>
-        </div>
-        
+            </div>
+        </section>
+
+        <!-- forum section started -->
+        <section>
+            <div class="hero bg-[#12132D] mr-3 my-16 rounded-2xl">
+                <div class="hero-content flex-col lg:flex-row-reverse justify-between gap-10">
+                    <img src="images/joinforum.png" class="max-w-sm rounded-lg shadow-2xl" />
+                    <div>
+                        <h1 class="text-5xl font-bold text-white">Join Our Forum</h1>
+                        <p class="py-4 text-white">Share your favorite opinion and win and wp forum coffee mug! Yes, you
+                            can <br> run unit tests and view the results directly within the app. </p>
+                        <button class="btn bg-[#797DFC] text-white">Get Started</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Latest Part -->
+        <section>
+            <div class="flex text-center mt-20 justify-center flex-col">
+                <h2 class="text-4xl text-[#12132D] ">Latest Posts</h2>
+                <p class="text-[#12132D99]">Yes, you can run unit tests and view the results directly within the app.
+                    The
+                    <br>
+                    integrated testing features allow for a streamlined .
+                </p>
+                <section class="grid lg:grid-cols-3 sm:grid-cols-1 gap-4 my-5 lg:my-16">
+                    <!-- Information container -->
+                    <div id="latest Post">
+
+                    </div>
+            </div>
+        </section>
+
     </main>
 
-    <footer>
-
+    <footer class="footer footer-center p-10 bg-base-200 text-base-content rounded">
+        <h2 class="font-bold text-3xl">ReTro</h2>
+        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a <br> piece of classical
+            Latin literature from 45 BC</p>
+        <nav>
+            <div class="grid grid-flow-col gap-4">
+                <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        class="fill-current">
+                        <path
+                            d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z">
+                        </path>
+                    </svg></a>
+                <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        class="fill-current">
+                        <path
+                            d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z">
+                        </path>
+                    </svg></a>
+                <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        class="fill-current">
+                        <path
+                            d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z">
+                        </path>
+                    </svg></a>
+            </div>
+        </nav>
+        <aside>
+            <p>Copyright © 2024 - All right reserved </p>
+        </aside>
     </footer>
 
     <script src="js/index.js"></script>
