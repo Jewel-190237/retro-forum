@@ -13,6 +13,7 @@
 
 <body>
     <header class="container mx-auto">
+        <!-- Nav start -->
         <nav>
             <div class="navbar bg-base-100">
                 <div class="flex-1">
@@ -29,12 +30,61 @@
                 </div>
             </div>
         </nav>
+        <!-- Nav End -->
         <!-- Banner Start -->
-        <section></section>
+        <section class="bg-[#12132D] rounded-2xl mr-12 pr-0 relative">
+            <img src="images/bgbanner.png" alt="">
+            <div class="card bg-neutral text-neutral-content lg:right-40 top-20 absolute">
+                <div class="card-body items-center text-center">
+                    <h2 class="card-title">Cookies!</h2>
+                    <p>We are using cookies for no reason.</p>
+                </div>
+            </div>
+            <div class="absolute -mt-60">
+                <h2 class="text-4xl text-white">Welcome to the ReTro Forum</h2>
+                <p class="text-white">Share your favorite opinion and win and wp forum coffee mug!</p>
+                <label class="input input-bordered flex items-center gap-2">
+                    <input type="text" class="grow" placeholder="Search here something" />
+                    <button class="btn">Search</button>
+                </label>
+            </div>
+        </section>
+        <!-- Banner end -->
     </header>
 
-    <main>
+    <main class="container mx-auto">
+        <!-- Discussion section start -->
+        <!-- Heading and description section -->
+        <div class="flex text-center mt-20 justify-center flex-col">
+            <h2 class="text-4xl text-[#12132D] ">Let’s Discuss</h2>
+            <p class="text-[#12132D99]">Yes, you can run unit tests and view the results directly within the app. The
+                <br>
+                integrated testing features allow for a streamlined .
+            </p>
+        </div>
 
+        <!-- Card Section -->
+        <div class="flex gap-8">
+            <section id="data-container" class="w-3/5"> 
+            </section>
+            <section id="data-container2" class="w-2/5 bg-[#12132D0D] rounded-2xl"> 
+                <div class="flex justify-between">
+                    <p class="p-6 text-2xl">Title</p>
+                    <p class="p-4 text-[#12132D99]">Make as read</p>
+                </div>
+                <div class="flex flex-col gap-8">
+                    <div class="hero bg-white p-2 m-4 rounded-2xl w-fit">
+                        <div class="hero-content flex-col lg:flex-row-reverse">
+                          <img src="images/view.png" class="max-w-sm rounded-lg shadow-2xl" />
+                          <div>
+                            <h4 class="text-xl text-black">10 Kids Unaware of Their Halloween Costume</h4>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+            </section>
+        </div>
+        
     </main>
 
     <footer>
