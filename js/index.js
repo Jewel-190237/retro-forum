@@ -98,13 +98,7 @@ const controlSearch = () => {
     loadInformation(inputValue);
 }
 
-// showing all functionalities for latest post
-const latestPost = async () => {
-    const url = 'https://openapi.programming-hero.com/api/retro-forum/latest-posts';
-    const res = await fetch(url)
-    const data = await res.json();
 
-}
 
 const loadPost = async () => {
     const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/latest-posts`);
@@ -120,18 +114,17 @@ const loadPost = async () => {
 loadPost()
 
 const lastPostShowing = (post) => {
-    const latestPostDetails = document.getElementById('show-last-post');
-    const postDetails = document.createElement('div');
-    postDetails.className = "card w-[450px] bg-base-100 shadow-xl mb-4";
+    const lastPostValue = document.getElementById('show-last-post');
+    const postInfo = document.createElement('div');
+    postInfo.className = "card w-[450px] bg-base-100 shadow-xl mb-4";
 
-    // Generating the HTML for the card dynamically for all latest post
-    postDetails.innerHTML = `
+    postInfo.innerHTML = `
                 <figure class="px-10 pt-10">
                     <img src="${post.cover_image}" />
                 </figure>
                 <div class="card-body space-y-4  ">
                     <div class="flex flex-row gap-3" >
-                        <img src="images/date.png" alt="">
+                        <img src="images/calender.png" alt="">
                             <p>${post?.author?.posted_date || "No Publish Date"}</p>
                     </div>
                     <h2 class="text-black text-3xl font-bold">${post.title}</h2>
@@ -149,8 +142,7 @@ const lastPostShowing = (post) => {
             </div>
             `;
 
-    // Appending the card to the container
-    latestPostDetails.appendChild(postDetails);
+    lastPostValue.appendChild(postInfo);
 }
 
 const loadingSpinner = (isTrue) => {
