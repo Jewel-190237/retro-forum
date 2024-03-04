@@ -10,12 +10,12 @@ loadInformation(value)
 
 const displayData = (data) => {
     const dataContainer = document.getElementById('data-container');
-    dataContainer.textContent= ''
+    dataContainer.textContent = ''
     data.forEach(element => {
-        console.log(element);
+        // console.log(element);
         const x = element.title
-        console.log(x);
-        console.log(typeof x);
+        // console.log(x);
+        // console.log(typeof x);
         const dataCard = document.createElement('div');
         dataCard.classList = `w-full h-full lg:h-44 rounded-2xl bg-[#F3F3F5] sm:mb-3 lg:mb-7`
         dataCard.innerHTML = `
@@ -54,13 +54,14 @@ const displayData = (data) => {
     </div>
         `;
         dataContainer.appendChild(dataCard);
+        loadingSpinner(false)
     });
 }
 
 let count = 0;
 
-const showCount = () =>{
-    count ++;
+const showCount = () => {
+    count++;
     const idAddress = document.getElementById('read-count');
     idAddress.innerText = count;
 
@@ -78,15 +79,80 @@ const showRead = (x) => {
         <img class="w-4 h-5 flex items-center justify-center" src="images/view.png" alt="">
         </div>
    `;
-   
-   info.appendChild(textValue)
-   showCount()
+
+    info.appendChild(textValue)
+    showCount()
 }
 
 const controlSearch = () => {
     //loadingSpinner(true)
+    loadingSpinner(true)
     const inputData = document.getElementById('input-data');
     const inputValue = inputData.value;
     loadInformation(inputValue);
 }
 
+// showing all functionalities for latest post
+const latestPost = async () => {
+    const url = 'https://openapi.programming-hero.com/api/retro-forum/latest-posts';
+    const res = await fetch(url)
+    const data = await res.json();
+
+}
+
+const loadPost = async () => {
+    const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/latest-posts`);
+    const data = await res.json();
+    const loadData = data.posts;
+    
+    data.forEach(element => {
+        console.log(element);
+        lastPostShowing(element);
+    })    
+}
+
+loadPost()
+
+const lastPostShowing = (post) => {
+    const latestPostDetails = document.getElementById('show-last-post');
+    const postDetails = document.createElement('div');
+    postDetails.className = "card w-[450px] bg-base-100 shadow-xl mb-4";
+
+    // Generating the HTML for the card dynamically for all latest post
+    postDetails.innerHTML = `
+    <figure class="px-10 pt-10">
+      <img src="${post.cover_image}" />
+    </figure>
+    <div class="card-body space-y-4  ">
+        <div class="flex flex-row gap-3" >
+            <img src="images/date.png" alt="">
+            <p>${post?.author?.posted_date || "No Publish Date"}</p>
+        </div>
+      <h2 class="text-black text-3xl font-bold">${post.title}</h2>
+      <p>${post.description}</p>
+      <div class="flex flex-row gap-7">
+        <div class="w-[50px] h-[50px]" >
+            <img class="rounded-full" src="${post.profile_image}" alt="">
+        </div>
+        <div>
+           <h1 class="text-black text-2xl font-semibold">${post.author.name}</h1>
+            <p>${post?.author?.designation || 'Unknown'}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  `;
+
+    // Appending the card to the container
+    latestPostDetails.appendChild(postDetails);
+}
+
+const loadingSpinner = (isTrue) => {
+    const spinner =  document.getElementById('loading-spinner');
+    if(isTrue){
+      spinner.classList.remove('hidden');
+    }
+    else {
+      spinner.classList.add('hidden');
+    }
+}

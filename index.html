@@ -116,6 +116,10 @@
     </header>
 
     <main class="container mx-auto">
+
+        <div id="loading-spinner" class="text-center my-40 hidden">
+            <span class="loading loading-spinner text-warning"></span>
+        </div>
         <!-- Discussion section start -->
         <!-- Heading and description section -->
         <div class="flex text-center mt-20 justify-center flex-col">
@@ -160,19 +164,15 @@
 
         <!-- Latest Part -->
         <section>
-            <div class="flex text-center mt-20 justify-center flex-col">
-                <h2 class="text-4xl text-[#12132D] ">Latest Posts</h2>
-                <p class="text-[#12132D99]">Yes, you can run unit tests and view the results directly within the app.
-                    The
-                    <br>
-                    integrated testing features allow for a streamlined .
-                </p>
-                <section class="grid lg:grid-cols-3 sm:grid-cols-1 gap-4 my-5 lg:my-16">
-                    <!-- Information container -->
-                    <div id="latest Post">
-
-                    </div>
-            </div>
+            
+            <section class="mt-14">
+                <div class="text-center mb-10 space-y-7 ">
+                  <h1 class="text-3xl font-bold">Latest Posts</h1>  
+                  <p>Yes, you can run unit tests and view the results directly within the app. The <br> integrated testing features allow for a streamlined .</p>
+                </div>
+                <div id="show-last-post" class="grid grid-cols-1 lg:grid-cols-3 gap-7">   
+                </div>
+            </section>
         </section>
 
     </main>
