@@ -50,7 +50,7 @@ const displayData = (data) => {
                     </div>
                 </div>
                 <div>
-                    <img onclick="showRead('${element.title}')" class="pl-4 lg:pl-20" src="images/message-icon.png" alt="">
+                    <img onclick="showRead('${element.title}','${element.view_count}')" class="pl-4 lg:pl-20" src="images/message-icon.png" alt="">
                 </div>
             </div>
           </div>
@@ -73,17 +73,18 @@ const showCount = () => {
     //console.log(count)
 }
 
-const showRead = (x) => {
+const showRead = (x,y) => {
     const info = document.getElementById('details-info');
     const textValue = document.createElement('div');
-    textValue.className = `w-full lg:w-2/5 rounded-2xl bg-[#F3F3F5]`
+    textValue.className = ` rounded-2xl bg-[#F3F3F5]`
     //const detailsInfo = textValue.classList;
-    info.innerHTML = `
-                <div class="flex justify-between bg-white m-8 rounded-2xl p-8">
-                    <h2 class="font-bold text-xl">${x}</h2>
-                    <img class="w-4 h-5 flex items-center justify-center" src="images/view.png" alt="">
-                </div>
-                `;
+    textValue.innerHTML = `
+      <div class="flex justify-between bg-white m-8 rounded-2xl p-8">
+      <h2 class="font-bold text-xl">${x}</h2>
+      <img class="w-4 h-5 flex items-center justify-center" src="images/view.png" alt="">
+      <h2>${y}</h2>
+      </div>
+ `;
 
     info.appendChild(textValue)
     showCount()
