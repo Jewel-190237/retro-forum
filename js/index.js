@@ -12,8 +12,12 @@ const displayData = (data) => {
     const dataContainer = document.getElementById('data-container');
     dataContainer.textContent = ''
     data.forEach(element => {
-        // console.log(element);
+        console.log(element);
         const x = element.title
+
+        const image = element.image;
+
+        showBadge(image);
         // console.log(x);
         // console.log(typeof x);
         const dataCard = document.createElement('div');
@@ -21,7 +25,7 @@ const displayData = (data) => {
         dataCard.innerHTML = `
         <div class="bg-base-200 rounded-2xl">
         <div class="flex flex-col lg:flex-row gap-2 lg:gap-8 my-2 lg:mb-4">
-          <img class="p-2 lg:p-4 w-32 h-full rounded-2xl" src="${element.image}" />
+          <img id="show-image" class="p-2 lg:p-4 w-32 h-full rounded-2xl" src="${element.image}" />
           <div class="py-2 lg:py-4">
             <div class="flex">
                 <p>#${element.category}</p>
@@ -54,6 +58,7 @@ const displayData = (data) => {
     </div>
         `;
         dataContainer.appendChild(dataCard);
+
         loadingSpinner(false)
     });
 }
@@ -74,11 +79,11 @@ const showRead = (x) => {
     textValue.className = `w-full lg:w-2/5 rounded-2xl bg-[#F3F3F5]`
     //const detailsInfo = textValue.classList;
     info.innerHTML = `
-        <div class="flex justify-between bg-white m-8 rounded-2xl p-8">
-        <h2 class="font-bold text-xl">${x}</h2>
-        <img class="w-4 h-5 flex items-center justify-center" src="images/view.png" alt="">
-        </div>
-   `;
+                <div class="flex justify-between bg-white m-8 rounded-2xl p-8">
+                    <h2 class="font-bold text-xl">${x}</h2>
+                    <img class="w-4 h-5 flex items-center justify-center" src="images/view.png" alt="">
+                </div>
+                `;
 
     info.appendChild(textValue)
     showCount()
@@ -104,11 +109,11 @@ const loadPost = async () => {
     const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/latest-posts`);
     const data = await res.json();
     const loadData = data.posts;
-    
+
     data.forEach(element => {
         console.log(element);
         lastPostShowing(element);
-    })    
+    })
 }
 
 loadPost()
@@ -120,39 +125,43 @@ const lastPostShowing = (post) => {
 
     // Generating the HTML for the card dynamically for all latest post
     postDetails.innerHTML = `
-    <figure class="px-10 pt-10">
-      <img src="${post.cover_image}" />
-    </figure>
-    <div class="card-body space-y-4  ">
-        <div class="flex flex-row gap-3" >
-            <img src="images/date.png" alt="">
-            <p>${post?.author?.posted_date || "No Publish Date"}</p>
-        </div>
-      <h2 class="text-black text-3xl font-bold">${post.title}</h2>
-      <p>${post.description}</p>
-      <div class="flex flex-row gap-7">
-        <div class="w-[50px] h-[50px]" >
-            <img class="rounded-full" src="${post.profile_image}" alt="">
-        </div>
-        <div>
-           <h1 class="text-black text-2xl font-semibold">${post.author.name}</h1>
-            <p>${post?.author?.designation || 'Unknown'}</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  `;
+                <figure class="px-10 pt-10">
+                    <img src="${post.cover_image}" />
+                </figure>
+                <div class="card-body space-y-4  ">
+                    <div class="flex flex-row gap-3" >
+                        <img src="images/date.png" alt="">
+                            <p>${post?.author?.posted_date || "No Publish Date"}</p>
+                    </div>
+                    <h2 class="text-black text-3xl font-bold">${post.title}</h2>
+                    <p>${post.description}</p>
+                    <div class="flex flex-row gap-7">
+                        <div class="w-[50px] h-[50px]" >
+                            <img class="rounded-full" src="${post.profile_image}" alt="">
+                        </div>
+                        <div>
+                            <h1 class="text-black text-2xl font-semibold">${post.author.name}</h1>
+                            <p>${post?.author?.designation || 'Unknown'}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            `;
 
     // Appending the card to the container
     latestPostDetails.appendChild(postDetails);
 }
 
 const loadingSpinner = (isTrue) => {
-    const spinner =  document.getElementById('loading-spinner');
-    if(isTrue){
-      spinner.classList.remove('hidden');
+    const spinner = document.getElementById('loading-spinner');
+    if (isTrue) {
+        spinner.classList.remove('hidden');
     }
     else {
-      spinner.classList.add('hidden');
+        spinner.classList.add('hidden');
     }
 }
+
+const showBadge = (image) => {
+
+} 
